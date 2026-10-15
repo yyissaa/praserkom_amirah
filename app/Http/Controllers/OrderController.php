@@ -37,6 +37,7 @@ class OrderController extends Controller //membuat class orderController
             return back()->with('error', 'Pilih minimal satu tiket!'); // balik ke form + pesan error
         }
 
+        //transaction agar data konsisten, kalau error bisa rollback
         DB::beginTransaction(); // mulai transaksi database (semua perintah dianggap satu paket)
         try { 
             $order = Order::create([ // buat pesanan baru

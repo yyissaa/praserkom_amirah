@@ -44,3 +44,43 @@ Sebelum instalasi, pastikan sudah terpasang:
 - **VS Code** (untuk edit kode)
 
 ---
+
+### Langkah Instalasi
+
+1. Clone repository
+git clone https://github.com/yyissaa/praserkom_amirah
+cd maujajan
+
+2. Install dependency PHP
+composer install
+
+3. Install dependency JS
+npm install
+
+4. Copy file environment
+cp .env.example .env
+
+5. Generate application key
+php artisan key:generate
+
+6. Konfigurasi database di .env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=db_ticket_konser
+DB_USERNAME=root
+DB_PASSWORD=
+
+7. Jalankan migrasi + seeder
+php artisan migrate:fresh --seed
+
+8. Link storage untuk gambar
+php artisan storage:link
+
+9. Build aset frontend
+npm run build
+
+10. Jalankan server
+php artisan serve
+
+Buka di browser: http://127.0.0.1:8000
